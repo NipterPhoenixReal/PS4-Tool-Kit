@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="token" content="__TOKEN__">
+  <title>PS4 Toolkit</title>
+  <link rel="icon" href="/icon">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-gamepad" viewBox="0 0 24 24"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258A4 4 0 0 0 17.32 5z"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.86a10 10 0 0 1 14 0"/><path d="M8.5 16.43a5 5 0 0 1 7 0"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  </defs>
+</svg>
+
+<div id="offline" class="offline" hidden>
+  <svg class="icon"><use href="#i-alert"/></svg>
+  Lost connection to the toolkit. Close this tab and start the app again.
+</div>
+
+<main class="app">
+
+  <header class="hero">
+    <img class="logo" src="/icon" alt="" width="46" height="46">
+    <div>
+      <h1>PS4 Toolkit</h1>
+      <p>Notifications, payloads, live logs and more</p>
+    </div>
+    <button id="quit" class="icon-btn quit" type="button" title="Quit PS4 Toolkit" aria-label="Quit PS4 Toolkit">
+      <svg class="icon"><use href="#i-power"/></svg>
+    </button>
+  </header>
+
+  <!-- Connection -->
+  <section class="card">
+    <div class="card-head">
+      <label class="card-title" for="ip"><svg class="icon"><use href="#i-wifi"/></svg>PS4 IP address</label>
+      <div class="head-right">
+        <span id="status-pill" class="pill idle"><span class="dot"></span><span id="status-text">Checking…</span></span>
+        <button id="refresh-status" class="icon-btn" type="button" title="Check again" aria-label="Check connection again">
+          <svg class="icon"><use href="#i-refresh"/></svg>
+        </button>
+      </div>
+    </div>
+    <input id="ip" class="input mono" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="Enter the IP address">
+    <div id="recent-ips" class="chips" aria-label="Recent addresses"></div>
+    <div class="actions">
+      <span class="muted small">Recent addresses</span>
+      <button id="clear-recent" class="btn ghost sm" type="button">Clear recent</button>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab active" role="tab" data-tab="notify" aria-selected="true"><svg class="icon"><use href="#i-bell"/></svg><span>Notify</span></button>
+    <button class="tab" role="tab" data-tab="payload" aria-selected="false"><svg class="icon"><use href="#i-package"/></svg><span>Payload</span></button>
+    <button class="tab" role="tab" data-tab="klog" aria-selected="false"><svg class="icon"><use href="#i-terminal"/></svg><span>Klog</span></button>
+    <button class="tab" role="tab" data-tab="tools" aria-selected="false"><svg class="icon"><use href="#i-wrench"/></svg><span>Tools</span></button>
+  </nav>
+
+  <!-- Notify -->
+  <section id="panel-notify" class="card panel" role="tabpanel">
+    <div class="card-head">
+      <label class="card-title" for="message">Message</label>
+      <span id="char-count" class="muted small">0 characters</span>
+    </div>
+    <textarea id="message" class="input" rows="4" placeholder="Type a notification to show on your PS4…"></textarea>
+
+    <div class="subhead">
+      <span class="muted small">Templates</span>
+      <button id="save-template" class="btn ghost sm" type="button"><svg class="icon"><use href="#i-plus"/></svg>Save current</button>
+    </div>
+    <div id="templates" class="chips"></div>
+    <div class="subhead">
+      <span class="muted small">Recent messages</span>
+      <button id="clear-history" class="btn ghost sm" type="button">Clear</button>
+    </div>
+    <div id="history" class="chips"></div>
+
+    <div class="actions">
+      <span class="muted small">Port 744 · Ctrl+Enter to send</span>
+      <button id="send-notify" class="btn primary" type="button"><svg class="icon"><use href="#i-bell"/></svg>Send notification</button>
+    </div>
+  </section>
+
+  <!-- Payload -->
+  <section id="panel-payload" class="card panel" role="tabpanel" hidden>
+    <div class="card-head">
+      <span class="card-title"><svg class="icon"><use href="#i-package"/></svg>Payload library</span>
+    </div>
+
+    <label id="dropzone" class="dropzone" for="file-input">
+      <svg class="icon big"><use href="#i-upload"/></svg>
+      <strong>Drop a .bin or .elf file here</strong>
+      <span class="muted small">or click to browse. Files are kept in your library so you can resend them.</span>
+      <input id="file-input" type="file" accept=".bin,.elf,application/octet-stream" multiple hidden>
+    </label>
+
+    <ul id="library" class="library" aria-label="Saved payloads"></ul>
+
+    <div class="field-row">
+      <div class="grow">
+        <label class="card-title small-title" for="port">Port</label>
+        <input id="port" class="input mono narrow" type="text" inputmode="numeric" value="9090">
+      </div>
+      <div id="port-presets" class="chips"></div>
+    </div>
+
+    <label class="switch">
+      <input id="notify-after" type="checkbox">
+      <span class="track"></span>
+      <span>Send a notification to the PS4 when the payload is sent</span>
+    </label>
+
+    <div class="progress" aria-hidden="true"><div id="progress-bar" class="bar"></div></div>
+    <div class="actions">
+      <span id="progress-text" class="muted small">Pick a payload to send</span>
+      <button id="send-payload" class="btn primary" type="button" disabled><svg class="icon"><use href="#i-send"/></svg>Send payload</button>
+    </div>
+  </section>
+
+  <!-- Klog -->
+  <section id="panel-klog" class="card panel" role="tabpanel" hidden>
+    <div class="toolbar">
+      <div class="inline-field">
+        <label class="small-title" for="klog-port">Port</label>
+        <input id="klog-port" class="input mono tiny" type="text" inputmode="numeric" value="3232">
+      </div>
+      <button id="klog-toggle" class="btn primary" type="button"><svg class="icon"><use href="#i-play"/></svg><span>Start</span></button>
+      <span class="spacer"></span>
+      <button id="klog-clear" class="btn ghost sm" type="button">Clear</button>
+      <button id="klog-save" class="btn ghost sm" type="button"><svg class="icon"><use href="#i-download"/></svg>Save</button>
+    </div>
+    <div class="toolbar">
+      <div class="search grow">
+        <svg class="icon"><use href="#i-search"/></svg>
+        <input id="klog-filter" class="input" type="text" placeholder="Filter lines…" spellcheck="false">
+      </div>
+      <label class="switch compact">
+        <input id="klog-autoscroll" type="checkbox" checked>
+        <span class="track"></span>
+        <span>Auto-scroll</span>
+      </label>
+    </div>
+    <div id="klog-out" class="klog" tabindex="0" aria-live="off"></div>
+    <div id="klog-status" class="muted small">Not connected</div>
+  </section>
+
+  <!-- Tools -->
+  <section id="panel-tools" class="card panel" role="tabpanel" hidden>
+    <div class="card-head">
+      <span class="card-title"><svg class="icon"><use href="#i-search"/></svg>Connection check</span>
+    </div>
+    <div id="ports-grid" class="ports"></div>
+    <label class="switch">
+      <input id="include-payload" type="checkbox">
+      <span class="track"></span>
+      <span>Include payload ports <span class="muted small">(can confuse some loaders)</span></span>
+    </label>
+    <p class="muted small note">Briefly opens a connection to each port, nothing is sent.</p>
+    <div class="btn-row">
+      <button id="check-ports" class="btn primary" type="button"><svg class="icon"><use href="#i-search"/></svg>Check ports</button>
+      <button id="open-ftp" class="btn ghost" type="button"><svg class="icon"><use href="#i-folder"/></svg>Open FTP</button>
+      <button id="copy-ip" class="btn ghost" type="button"><svg class="icon"><use href="#i-copy"/></svg>Copy IP</button>
+    </div>
+
+    <div class="divider"></div>
+    <div class="card-head">
+      <span class="card-title"><svg class="icon"><use href="#i-power"/></svg>Power</span>
+    </div>
+    <div class="btn-row">
+      <button id="reboot" class="btn danger" type="button"><svg class="icon"><use href="#i-refresh"/></svg>Reboot PS4</button>
+      <span class="muted small">Needs the debug service on port 744</span>
+    </div>
+  </section>
+
+  <!-- Activity -->
+  <section class="card">
+    <div class="card-head">
+      <span class="card-title"><svg class="icon"><use href="#i-activity"/></svg>Activity</span>
+      <div class="head-right">
+        <button id="log-save" class="btn ghost sm" type="button">Save</button>
+        <button id="log-clear" class="btn ghost sm" type="button">Clear</button>
+      </div>
+    </div>
+    <div id="log" class="log" role="log" aria-live="polite"></div>
+  </section>
+
+  <p class="muted small note keys">Ctrl+1 to 4 switch sections · Ctrl+Enter sends a notification · Enter saves the IP</p>
+</main>
+
+<div id="closed" class="closed" hidden>
+  <div>
+    <h2>PS4 Toolkit has stopped</h2>
+    <p class="muted">You can close this tab. Start the app again to keep using it.</p>
+  </div>
+</div>
+
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+<dialog id="confirm" class="dialog">
+  <form method="dialog">
+    <h2 id="confirm-title">Are you sure?</h2>
+    <p id="confirm-body" class="muted"></p>
+    <div class="dialog-actions">
+      <button class="btn ghost" value="no">Cancel</button>
+      <button id="confirm-yes" class="btn danger" value="yes">Confirm</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="/app.js"></script>
+</body>
+</html>
